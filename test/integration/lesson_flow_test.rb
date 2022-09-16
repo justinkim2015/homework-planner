@@ -10,6 +10,7 @@ class LessonFlowTest < ActionDispatch::IntegrationTest
   end
 
   test "can create a new lesson" do
+    sign_in users(:one)
     get "/lessons/new"
     assert_response :success
 
@@ -21,5 +22,3 @@ class LessonFlowTest < ActionDispatch::IntegrationTest
     assert_select "p"
   end
 end
-
-

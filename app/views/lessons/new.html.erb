@@ -6,7 +6,7 @@
   <%= f.time_field :time %>
 
   <%= f.label :date %>
-  <%= f.date_field :date %>
+  <%= f.select :date, ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] %>
 
   <%= f.submit %>
 <% end %>

@@ -10,18 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_15_042737) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_16_004600) do
   create_table "homeworks", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "lesson_id"
+    t.index ["lesson_id"], name: "index_homeworks_on_lesson_id"
   end
 
   create_table "lessons", force: :cascade do |t|
     t.string "rank"
-    t.date "date"
+    t.string "date"
     t.time "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_lessons_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

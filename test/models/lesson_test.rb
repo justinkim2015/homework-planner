@@ -5,8 +5,13 @@ class LessonTest < ActiveSupport::TestCase
   #   assert true
   # end
 
-  test "should not save lesson without all details" do
+  test 'should not save lesson without all details' do
     lesson = Lesson.new
-    assert_not lesson.save, "Lesson is saved without all details"
+    assert_not lesson.save, 'Lesson is saved without all details'
+  end
+
+  test 'should be able to access homework' do
+    lesson = Lesson.first
+    assert lesson.homeworks, 'Homework/Lesson association not working'
   end
 end
