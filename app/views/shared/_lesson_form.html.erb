@@ -1,0 +1,12 @@
+<%= form_with model: @lesson do |f| %>
+  <%= f.label :rank %>
+  <%= f.text_field :rank %>
+
+  <%= f.label :time %>
+  <%= f.time_field :time %>
+
+  <%= f.label :date %>
+  <%= f.select :date, ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] %>
+
+  <%= f.submit %>
+<% end %>

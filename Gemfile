@@ -9,6 +9,11 @@ gem "rails", "~> 7.0.4"
 # Use devise for user authentication
 gem "devise"
 
+# Add guard for automatic testing
+group :development do
+  gem 'guard'
+end
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
