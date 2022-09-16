@@ -10,11 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_16_004600) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_16_021650) do
   create_table "homeworks", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "lesson_id"
+    t.string "name"
+    t.integer "length"
     t.index ["lesson_id"], name: "index_homeworks_on_lesson_id"
   end
 
