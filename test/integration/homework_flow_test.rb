@@ -9,14 +9,14 @@ class HomeworkFlowTest < ActionDispatch::IntegrationTest
   end
 
   test "can create a new homework" do
-    get "/homework/new"
+    get "/assignments/new"
     assert_response :success
 
-    post "/homework",
-      params: { homework: { name: "QA/A", length: "32"} }
+    post "/assignments",
+      params: { assignment: { name: "QA/A", length: "32"} }
     assert_response :redirect
-    # follow_redirect!
-    # assert_response :success
-    # assert_select "p"
+    follow_redirect!
+    assert_response :success
+    assert_select "p"
   end
 end

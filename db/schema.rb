@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_16_021650) do
-  create_table "homeworks", force: :cascade do |t|
+ActiveRecord::Schema[7.0].define(version: 2022_09_17_123927) do
+  create_table "assignments", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "lesson_id"
     t.string "name"
     t.integer "length"
-    t.index ["lesson_id"], name: "index_homeworks_on_lesson_id"
+    t.integer "lesson_id"
+    t.index ["lesson_id"], name: "index_assignments_on_lesson_id"
   end
 
   create_table "lessons", force: :cascade do |t|
