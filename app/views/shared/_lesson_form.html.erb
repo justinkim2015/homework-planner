@@ -8,14 +8,5 @@
   <%= f.label :date %>
   <%= f.select :date, ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] %>
 
-  <h3>Homework:</h3>
-  <%= f.fields_for @lesson.homeworks.build do |sf| %>
-    <%= sf.label :name %>
-    <%= sf.text_field :name %>
-
-    <%= sf.label :length %>
-    <%= sf.number_field :length %>
-  <% end %>
-  <br><br>
   <%= f.submit %>
 <% end %>

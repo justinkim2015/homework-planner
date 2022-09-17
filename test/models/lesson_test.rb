@@ -12,6 +12,6 @@ class LessonTest < ActiveSupport::TestCase
 
   test 'should be able to access homework' do
     lesson = Lesson.first
-    assert lesson.homeworks, 'Homework/Lesson association not working'
+    assert lesson.homework, 'Homework/Lesson association not working'
   end
 end
