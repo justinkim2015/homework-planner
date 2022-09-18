@@ -15,6 +15,9 @@ class LessonsController < ApplicationController
     @lesson = Lesson.new(lesson_params)
 
     if @lesson.save
+      @lesson.assignments.create(name: params[:lesson][:assignments_attributes][:name],
+                                 length: params[:lesson][:assignment_attributes][:length])
+
       redirect_to @lesson
     else
       render :new, status: :unprocessable_entity
@@ -45,6 +48,6 @@ class LessonsController < ApplicationController
   private
 
   def lesson_params
-    params.require(:lesson).permit(:rank, :time, :date)
+    params.require(:lesson).permit(:rank, :time, :date, assignments_attributes: [:name, :length])
   end
 end

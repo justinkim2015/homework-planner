@@ -13,10 +13,10 @@ class HomeworkFlowTest < ActionDispatch::IntegrationTest
     assert_response :success
 
     post "/assignments",
-      params: { assignment: { name: "QA/A", length: "32"} }
+      params: { assignment: { name: "QA/A", length: "32", lesson_id: 1} }
     assert_response :redirect
     follow_redirect!
     assert_response :success
-    assert_select "p"
+    assert_select "h1"
   end
 end
