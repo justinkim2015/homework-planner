@@ -13,6 +13,14 @@ class AssignmentsController < ApplicationController
     end
   end
 
+  def destroy
+    @assignment = Assignment.find(params[:id])
+    id = @assignment.lesson.id
+    @assignment.destroy
+
+    redirect_to lesson_path(id), status: :see_other
+  end
+
   private
 
   def assignment_params

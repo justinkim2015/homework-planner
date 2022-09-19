@@ -9,13 +9,15 @@
   <%= f.select :date, ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] %>
   <br>
 
-  <%= f.fields_for :assignment do |sf| %>
+  <%= f.fields_for :assignments do |sf| %>
     <%= sf.label :name %>
     <%= sf.text_field :name %>
 
     <%= sf.label :length %>
     <%= sf.number_field :length %>
+    <br>
   <% end %>
 
   <%= f.submit %>
 <% end %>
+

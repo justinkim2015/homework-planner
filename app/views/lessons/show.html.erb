@@ -2,6 +2,17 @@
   <p><%= @lesson.info %></p>
 </h1>
 
+<ul>
+  <% @lesson.assignments.each do |assignment| %>
+    <li>
+      <%= assignment.name %>
+      <%= button_to "Delete", assignment_path(assignment.id), method: :delete %>
+    </li>
+  <% end %>
+</ul>
+
+
+
 <%= link_to "Edit", edit_lesson_path %>
 <%= link_to "Home", root_path %>
 <%= button_to "Delete", lesson_path(@lesson), method: :delete %>
