@@ -1,23 +1,37 @@
-<h1>
-  <p><%= @lesson.info %></p>
-</h1>
+<%= render "shared/navbar" %>
 
-<ul>
-  <% @lesson.assignments.each do |assignment| %>
-    <li>
-      <%= assignment.name %>
-      <%= button_to "X", assignment_path(assignment.id), method: :delete %>
-    </li>
-  <% end %>
-</ul>
+<div class="box m-6 is-flex is-flex-direction-column">
+  <div class="title"><%= @lesson.info %></div>
+  
+  <ul>
+    <% @lesson.assignments.each do |assignment| %>
+        <li>
+          <div class="is-flex">
+            <p class="m-2"><%= assignment.name %></p>
+            <%= button_to "x", assignment_path(assignment.id), class: "button is-small is-rounded is-danger m-2", method: :delete %>
+          </div>
+        </li>
+    <% end %>
+  </ul>
+    
+  <div class="is-flex mt-6 is-justify-content-right">
+    <%= button_to "Delete lesson", lesson_path(@lesson), class: "button is-small is-rounded is-danger", method: :delete %>
+    <%= button_to "Edit lesson", edit_lesson_path, class: "button is-small is-rounded is-primary ml-2", method: :get %>
+  </div>
+</div>
 
-<%= form_with model: Assignment.new do |f| %>
-  <%= f.select(:name, Assignment.names)  %>
-  <%= f.number_field :length %>
-  <%= f.hidden_field :lesson_id, value: @lesson.id %>
-  <%= f.submit %>
-<% end %>
 
-<%= link_to "Edit", edit_lesson_path %>
-<%= link_to "Home", root_path %>
-<%= button_to "Delete lesson", lesson_path(@lesson), method: :delete %>
+<div class="box m-6 is-flex is-flex-direction-column">
+  <h2 class="title m-2">New Homework:</h1>
+  <div class="is-flex">
+    <%= form_with model: Assignment.new do |f| %>
+      <div class="is-flex">
+        <%= f.select(:name, Assignment.names, {}, class: "select") %>
+        <%= f.number_field :length, class: "input ml-5" %>
+        <%= f.hidden_field :lesson_id, value: @lesson.id %>
+      </div>
+      <%= f.submit 'New Homework', class: "button is-small is-rounded" %>
+
+    <% end %>
+  </div>
+</div>
