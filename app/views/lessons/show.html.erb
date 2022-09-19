@@ -11,7 +11,12 @@
   <% end %>
 </ul>
 
-
+<%= form_with model: Assignment.new do |f| %>
+  <%= f.text_field :name %>
+  <%= f.number_field :length %>
+  <%= f.hidden_field :lesson_id, value: @lesson.id %>
+  <%= f.submit %>
+<% end %>
 
 <%= link_to "Edit", edit_lesson_path %>
 <%= link_to "Home", root_path %>

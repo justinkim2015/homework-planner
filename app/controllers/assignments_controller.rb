@@ -7,7 +7,7 @@ class AssignmentsController < ApplicationController
     @assignment = Assignment.new(assignment_params)
 
     if @assignment.save
-      redirect_to root_path
+      redirect_to lesson_path(@assignment.lesson.id)
     else
       render :new, status: :unprocessable_entity
     end
