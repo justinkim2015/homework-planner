@@ -1,0 +1,30 @@
+<div class="navbar has-background-light pt-5 pb-5 pl-2 pr-2">
+  <div class="navbar-brand">
+    <div class="navbar-item">
+      <%= link_to "Homework Planner", root_path, class: "title has-text-black" %>
+    </div>
+  </div>
+
+  <div class="navbar-menu">
+
+    <div class="navbar-start">
+      <div class="navbar-item">
+        <%= link_to "New Lesson", new_lesson_path, class: "has-text-black" %>
+      </div>
+
+      <div class="navbar-item">
+        <%= link_to "View Lessons", lessons_path, class: "has-text-black" %>
+      </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <%= button_to "Edit Profile", edit_user_registration_path, class: "button is-small is-rounded is-primary", method: :get %>
+      </div>
+      
+      <div class="navbar-item">
+        <%= button_to "Log out", destroy_user_session_path, class: "button is-small is-rounded is-danger", method: :delete %>
+      </div>
+    </div>
+  </div>
+</div>

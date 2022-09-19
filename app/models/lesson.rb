@@ -4,6 +4,6 @@ class Lesson < ApplicationRecord
   accepts_nested_attributes_for :assignments
 
   def info
-    "Rank #{rank} on #{date} @ #{time.to_s[10..15]}"
+    "#{time.to_s[10..15]} - #{rank}"
   end
 end

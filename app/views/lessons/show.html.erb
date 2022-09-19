@@ -6,13 +6,13 @@
   <% @lesson.assignments.each do |assignment| %>
     <li>
       <%= assignment.name %>
-      <%= button_to "Delete", assignment_path(assignment.id), method: :delete %>
+      <%= button_to "X", assignment_path(assignment.id), method: :delete %>
     </li>
   <% end %>
 </ul>
 
 <%= form_with model: Assignment.new do |f| %>
-  <%= f.text_field :name %>
+  <%= f.select(:name, Assignment.names)  %>
   <%= f.number_field :length %>
   <%= f.hidden_field :lesson_id, value: @lesson.id %>
   <%= f.submit %>
@@ -20,4 +20,4 @@
 
 <%= link_to "Edit", edit_lesson_path %>
 <%= link_to "Home", root_path %>
-<%= button_to "Delete", lesson_path(@lesson), method: :delete %>
+<%= button_to "Delete lesson", lesson_path(@lesson), method: :delete %>

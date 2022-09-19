@@ -1,0 +1,7 @@
+<ul>
+  <% @lessons.each do |lesson| %>
+    <% if lesson.date == day %>
+      <li><%= link_to lesson.info, lesson_path(lesson.id), class: "has-text-black" %></li>
+    <% end %>
+  <% end %>
+</ul>      
