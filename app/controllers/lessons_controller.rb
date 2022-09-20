@@ -12,7 +12,7 @@ class LessonsController < ApplicationController
   end
 
   def create
-    @lesson = Lesson.new(lesson_params)
+    @lesson = current_user.lessons.build(lesson_params)
 
     if @lesson.save
       flash.notice = 'Lesson successfully created!'

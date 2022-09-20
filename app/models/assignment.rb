@@ -26,4 +26,14 @@ class Assignment < ApplicationRecord
     time_passed_days = time_passed_seconds / 60 / 60 / 24
     (total_time_days - time_passed_days).round
   end
+
+  def warning_list
+    fin = []
+    Assignment.all.each do |assignment|
+      fin << assignment.lesson.user_id if assignment.time_remaining <= 7
+    end
+    fin
+  end
+
+  # Tentatively working
 end

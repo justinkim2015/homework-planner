@@ -8,6 +8,7 @@ class AssignmentsController < ApplicationController
 
     if @assignment.save
       flash.notice = "New homework added!"
+      HomeworkMailer.with(user: current_user).confirmation_email.deliver_later
       redirect_to lesson_path(@assignment.lesson.id)
     else
       flash.alert = "Homework not added, try again!"

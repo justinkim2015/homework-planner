@@ -6,6 +6,9 @@ ruby "3.1.2"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"
 
+# Add gem to test emails
+gem "letter_opener", group: :development
+
 # Use devise for user authentication
 gem "devise"
 
