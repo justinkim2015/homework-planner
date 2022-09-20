@@ -7,8 +7,10 @@ class AssignmentsController < ApplicationController
     @assignment = Assignment.new(assignment_params)
 
     if @assignment.save
+      flash.notice = "New homework added!"
       redirect_to lesson_path(@assignment.lesson.id)
     else
+      flash.alert = "Homework not added, try again!"
       render :new, status: :unprocessable_entity
     end
   end
