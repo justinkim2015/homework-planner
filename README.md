@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Current to-do list:
+-How to deny access to edit other users pages by navigation via url (authorization probably)
+-Add more validations as to not break the database/site
+-Figure out how to schedule weekly emails
+-Update email content to be more useful
+-Update homepage look
+-Add name line to the User model
+-Add images to make the page look better
+-assignments#create renders to assignments if it is not valid when it should just redirect back to it's own page

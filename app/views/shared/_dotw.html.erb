@@ -3,12 +3,17 @@
     <% if lesson.date == day %>
       <li>
         <div class="is-flex">
-          <%= link_to lesson.info, lesson_path(lesson.id), class: "has-text-black" %> 
+          
+          <% if current_user.id == lesson.user_id %>
+            <%= link_to lesson.info, lesson_path(lesson.id), class: "has-text-black" %> 
+          <% end %>
+          
           <% lesson.assignments.each do |assignment| %>
-            <% if assignment.time_remaining <= 7 %>
+            <% if assignment.time_remaining <= 7 && current_user.id == lesson.user_id %>
               <div class="has-text-danger-dark ml-2">Order new homework!</div>
             <% end %>
           <% end %>
+
         </div>
       </li>
     <% end %>

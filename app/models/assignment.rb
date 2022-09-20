@@ -1,5 +1,6 @@
 class Assignment < ApplicationRecord
   belongs_to :lesson
+  validates :name, :length, :lesson_id, presence: true
 
   def self.names
     [
@@ -27,13 +28,13 @@ class Assignment < ApplicationRecord
     (total_time_days - time_passed_days).round
   end
 
-  def warning_list
+  def self.warning_list
     fin = []
     Assignment.all.each do |assignment|
       fin << assignment.lesson.user_id if assignment.time_remaining <= 7
     end
-    fin
+    fin.each do |user_id|
+      HomeworkMailer.with(user_id: user_id).warning_email.deliver_later
+    end
   end
-
-  # Tentatively working
 end

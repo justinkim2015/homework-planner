@@ -7,7 +7,7 @@ class HomeworkMailer < ApplicationMailer
   end
 
   def warning_email
-    @user = params[:user]
+    @user = User.find(params[:user_id])
     mail(to: @user.email, subject: "Order new homework soon!")
   end
 end

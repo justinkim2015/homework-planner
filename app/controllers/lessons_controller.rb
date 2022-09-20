@@ -16,6 +16,7 @@ class LessonsController < ApplicationController
 
     if @lesson.save
       flash.notice = 'Lesson successfully created!'
+      Assignment.warning_list
       redirect_to @lesson
     else
       flash.alert = 'Something went wrong!'
