@@ -1,23 +1,39 @@
-<%= form_with model: @lesson do |f| %>
-  <%= f.label :rank %>
-  <%= f.text_field :rank %>
+<div class="container is-flex is-flex-direction-column is-justify-content-center is-align-content-center">
+  <h1 class="title"><%= title %></h1>
 
-  <%= f.label :time %>
-  <%= f.time_field :time %>
 
-  <%= f.label :date %>
-  <%= f.select :date, ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] %>
-  <br>
+  <%= form_with model: @lesson do |f| %>
+    <div class="container is-flex">
+      <%= f.label :rank, "Rank:", class: "label" %>
+      <%= f.select :rank, ['10th Rank', '9th Rank', '8th Rank',
+                            '7th Rank', '6th Rank', '5th Rank',
+                            '4th Rank', '3rd Rank', '2nd Rank',
+                            '1st Rank', 'Private Adult', 'Private Child',
+                            'Private Group'], {}, class: "select mx-2" %>
+      <%= f.label :date, "Date:", class: "label" %>
+      <%= f.select :date, ['Irregular', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], {}, class: "select mx-2" %>
+    </div>
 
-  <%= f.fields_for :assignments do |sf| %>
-    <%= sf.label :name %>
-    <%= sf.text_field :name %>
-
-    <%= sf.label :length %>
-    <%= sf.number_field :length %>
     <br>
+    <div class="container is-flex">
+      <%= f.label :time, "Time:", class: "label" %>
+      <%= f.time_field :time, class: "input mx-2" %>
+    </div>
+    
+    <br>
+
+    <%= f.fields_for :assignments do |sf| %>
+      <div class="is-flex">
+        <%= sf.label :name, "Name:", class: "label" %>
+        <%= f.select :name, Assignment.names, {}, class: "select mx-2" %>
+        <%= sf.label :length, "Length(weeks):", class: "label" %>
+        <%= sf.number_field :length, class: "input mx-2 mb-4" %>
+      </div>
+    <% end %>
+
+    <div class="container is-flex is-flex-direction-column is-justify-content-center is-align-content-center">
+      <%= f.submit "Submit", class: "button is-rounded is-primary" %>
+    </div>
+    
   <% end %>
-
-  <%= f.submit %>
-<% end %>
-
+</div>

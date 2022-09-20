@@ -15,4 +15,15 @@ class Assignment < ApplicationRecord
       ['Opposites B', 'Opposites B']
     ]
   end
+
+  def info
+    "#{name} - Has #{time_remaining} days remaining"
+  end
+
+  def time_remaining
+    total_time_days = length * 7
+    time_passed_seconds = Time.now - created_at
+    time_passed_days = time_passed_seconds / 60 / 60 / 24
+    (total_time_days - time_passed_days).round
+  end
 end

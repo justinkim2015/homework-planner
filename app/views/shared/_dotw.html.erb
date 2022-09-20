@@ -1,7 +1,16 @@
 <ul>
   <% @lessons.each do |lesson| %>
     <% if lesson.date == day %>
-      <li><%= link_to lesson.info, lesson_path(lesson.id), class: "has-text-black" %></li>
+      <li>
+        <div class="is-flex">
+          <%= link_to lesson.info, lesson_path(lesson.id), class: "has-text-black" %> 
+          <% lesson.assignments.each do |assignment| %>
+            <% if assignment.time_remaining <= 7 %>
+              <div class="has-text-danger-dark ml-2">Order new homework!</div>
+            <% end %>
+          <% end %>
+        </div>
+      </li>
     <% end %>
   <% end %>
 </ul>      

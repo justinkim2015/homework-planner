@@ -45,6 +45,6 @@ class LessonsController < ApplicationController
   private
 
   def lesson_params
-    params.require(:lesson).permit(:rank, :time, :date, assignments_attributes: [:name, :length])
+    params.require(:lesson).permit(:rank, :time, :date, assignments_attributes: [:name, :length, :id])
   end
 end
