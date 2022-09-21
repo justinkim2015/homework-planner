@@ -12,7 +12,7 @@ class AssignmentsController < ApplicationController
       redirect_to lesson_path(@assignment.lesson.id)
     else
       flash.alert = "Homework not added, try again!"
-      render :new, status: :unprocessable_entity
+      redirect_to lesson_path(@assignment.lesson.id), status: :unprocessable_entity
     end
   end
 
