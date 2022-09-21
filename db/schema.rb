@@ -10,23 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_17_123927) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_21_030601) do
   create_table "assignments", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
-    t.integer "length"
-    t.integer "lesson_id"
+    t.string "name", null: false
+    t.integer "length", null: false
+    t.integer "lesson_id", null: false
     t.index ["lesson_id"], name: "index_assignments_on_lesson_id"
   end
 
   create_table "lessons", force: :cascade do |t|
-    t.string "rank"
-    t.string "date"
-    t.time "time"
+    t.string "rank", null: false
+    t.string "date", null: false
+    t.time "time", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.integer "user_id", null: false
     t.index ["user_id"], name: "index_lessons_on_user_id"
   end
 
