@@ -26,13 +26,16 @@
   <h2 class="title m-2">New Homework:</h1>
   <div class="is-flex">
     <%= form_with model: Assignment.new do |f| %>
-      <div class="is-flex">
+      <div class="is-flex my-5">
+        <%= f.label :name, "Homework:", class: "label mx-2" %>
         <%= f.select(:name, Assignment.names, {}, class: "select") %>
+
+        <%= f.label :length, "Length(weeks):", class: "label mx-2" %>
         <%= f.number_field :length, class: "input ml-5" %>
+
         <%= f.hidden_field :lesson_id, value: @lesson.id %>
       </div>
       <%= f.submit 'New Homework', class: "button is-small is-rounded" %>
-
     <% end %>
   </div>
 </div>
