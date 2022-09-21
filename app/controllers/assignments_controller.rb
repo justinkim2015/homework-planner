@@ -8,7 +8,7 @@ class AssignmentsController < ApplicationController
 
     if @assignment.save
       flash.notice = "New homework added!"
-      HomeworkMailer.with(user: current_user).confirmation_email.deliver_later
+      WarningEmailJob.set(wait: (@assignment.length - 1).week).perform_later(@assignment)
       redirect_to lesson_path(@assignment.lesson.id)
     else
       flash.alert = "Homework not added, try again!"

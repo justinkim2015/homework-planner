@@ -6,6 +6,9 @@ ruby "3.1.2"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"
 
+# Use sidekiq to schedule jobs
+gem 'sidekiq'
+
 # Add gem to test emails
 gem "letter_opener", group: :development
 

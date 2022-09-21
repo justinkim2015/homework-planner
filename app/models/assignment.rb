@@ -37,4 +37,8 @@ class Assignment < ApplicationRecord
       HomeworkMailer.with(user_id: user_id).warning_email.deliver_later
     end
   end
+
+  def warning_email
+    HomeworkMailer.with(user_id: lesson.user_id).warning_email.deliver_now
+  end
 end
