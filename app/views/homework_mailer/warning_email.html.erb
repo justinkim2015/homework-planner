@@ -1,1 +1,12 @@
-WARNING
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h2>Please order a new homework for <%= "#{@lesson.info} on #{@lesson.date}" %></h1>
+
+    <p>
+      Your homework <%= @assignment.name %> will finish in <%= @assignment.time_remaining %> days.
+    </p>
+  </body>
+</html>

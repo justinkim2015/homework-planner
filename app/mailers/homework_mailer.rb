@@ -8,6 +8,8 @@ class HomeworkMailer < ApplicationMailer
 
   def warning_email
     @user = User.find(params[:user_id])
-    mail(to: @user.email, subject: "Order new homework soon!")
+    @lesson = Lesson.find(params[:lesson_id])
+    @assignment = Assignment.find(params[:assignment_id])
+    mail(to: @user.email, subject: 'Order new homework soon!')
   end
 end

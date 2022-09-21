@@ -39,6 +39,6 @@ class Assignment < ApplicationRecord
   end
 
   def warning_email
-    HomeworkMailer.with(user_id: lesson.user_id).warning_email.deliver_now
+    HomeworkMailer.with(user_id: lesson.user_id, lesson_id: lesson.id, assignment_id: id).warning_email.deliver_now
   end
 end
