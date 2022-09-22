@@ -5,12 +5,12 @@
         <div class="is-flex">
           
           <% if current_user.id == lesson.user_id %>
-            <%= link_to lesson.info, lesson_path(lesson.id), class: "has-text-black" %> 
+            <%= link_to lesson.info, lesson_path(lesson.id), class: "has-text-black is-size-7-mobile" %> 
           <% end %>
           
           <% lesson.assignments.each do |assignment| %>
             <% if assignment.time_remaining <= 7 && current_user.id == lesson.user_id %>
-              <div class="has-text-danger-dark ml-2">Order new homework!</div>
+              <div class="has-text-danger-dark ml-2 is-size-7-mobile">Order new homework!</div>
             <% end %>
           <% end %>
 

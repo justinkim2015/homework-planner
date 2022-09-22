@@ -1,4 +1,6 @@
 class LessonsController < ApplicationController
+  before_action :lesson_owner, only: [:show, :edit]
+
   def index
     @lessons = Lesson.all
   end
@@ -52,5 +54,15 @@ class LessonsController < ApplicationController
 
   def lesson_params
     params.require(:lesson).permit(:rank, :time, :date, assignments_attributes: [:name, :length, :id])
+  end
+
+  def lesson_owner
+    lesson = Lesson.find(params[:id])
+    lesson_user_id = lesson.user_id
+
+    return if lesson_user_id == current_user.id
+
+    flash.alert = 'This is not your lesson!'
+    redirect_to root_path
   end
 end

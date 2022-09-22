@@ -6,7 +6,3 @@ Current to-do list:
 -Add name line to the User model
 -Add images to make the page look better
 -assignments#create renders to assignments if it is not valid when it should just redirect back to it's own page(temporarily changed this to redirectback to the page but its a temp fix)
-
--make responsive for mobile devices
-  -ipad works fine
-  -phones do not

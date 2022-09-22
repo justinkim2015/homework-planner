@@ -2,40 +2,45 @@
 <%= render "shared/flash" %>
 
 <div class="box m-6 is-flex is-flex-direction-column">
-  <div class="title"><%= @lesson.info %></div>
+  <div class="title is-size-4-mobile"><%= @lesson.info %></div>
   
   <ul>
     <% @lesson.assignments.each do |assignment| %>
         <li>
           <div class="is-flex">
-            <p class="m-2"><%= assignment.info %></p>
-            <%= button_to "x", assignment_path(assignment.id), class: "button is-small is-rounded is-danger m-2", method: :delete %>
+            <p class="m-2 is-size-7-mobile"><%= assignment.info %></p>
+            <% if current_user.id == @lesson.user_id %>
+              <%= button_to "x", assignment_path(assignment.id), class: "button is-small is-rounded is-danger m-2", method: :delete %>
+            <% end %>
           </div>
         </li>
     <% end %>
   </ul>
-    
-  <div class="is-flex mt-6 is-justify-content-right">
-    <%= button_to "Delete lesson", lesson_path(@lesson), class: "button is-small is-rounded is-danger", method: :delete %>
-    <%= button_to "Edit lesson", edit_lesson_path, class: "button is-small is-rounded is-primary ml-2", method: :get %>
-  </div>
+
+  <% if current_user.id == @lesson.user_id %>
+    <div class="is-flex mt-6 is-justify-content-right">
+      <%= button_to "Delete lesson", lesson_path(@lesson), class: "button is-small is-rounded is-danger", method: :delete %>
+      <%= button_to "Edit lesson", edit_lesson_path, class: "button is-small is-rounded is-primary ml-2", method: :get %>
+    </div>
+  <% end %>  
 </div>
 
+<% if current_user.id == @lesson.user_id %>
+  <div class="box m-6 is-flex is-flex-direction-column">
+    <h2 class="title m-2 is-size-4-mobile">New Homework:</h1>
+    <div class="is-flex">
+      <%= form_with model: Assignment.new do |f| %>
+        <div class="is-flex is-flex-direction-column my-5">
+          <%= f.label :name, "Homework:", class: "label is-size-7-mobile" %>
+          <%= f.select(:name, Assignment.names, {}, class: "select") %>
 
-<div class="box m-6 is-flex is-flex-direction-column">
-  <h2 class="title m-2">New Homework:</h1>
-  <div class="is-flex">
-    <%= form_with model: Assignment.new do |f| %>
-      <div class="is-flex my-5">
-        <%= f.label :name, "Homework:", class: "label mx-2" %>
-        <%= f.select(:name, Assignment.names, {}, class: "select") %>
+          <%= f.label :length, "Length(weeks):", class: "label is-size-7-mobile mt-3"%>
+          <%= f.number_field :length, class: "input" %>
 
-        <%= f.label :length, "Length(weeks):", class: "label mx-2" %>
-        <%= f.number_field :length, class: "input ml-5" %>
-
-        <%= f.hidden_field :lesson_id, value: @lesson.id %>
-      </div>
-      <%= f.submit 'New Homework', class: "button is-small is-rounded" %>
-    <% end %>
+          <%= f.hidden_field :lesson_id, value: @lesson.id %>
+        </div>
+        <%= f.submit 'New Homework', class: "button is-small is-rounded" %>
+      <% end %>
+    </div>
   </div>
-</div>
+<% end %>
