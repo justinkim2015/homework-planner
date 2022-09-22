@@ -1,39 +1,47 @@
 <%= render "shared/navbar" %>
 <%= render "shared/flash" %>
 
-
-<div class="tile is-ancestor is-flex is-align-items-center is-justify-content-center">
-  <div class="tile is-5 is-vertical is-parent">
-    <div class="tile is-child box">
-      <p class="title is-size-6-mobile">Tuesday:</p>
-      <%= render "shared/dotw", :day => 'Tuesday' %>
+  <div class="columns is-flex is-flex-direction-column m-6">
+    <div class="column">
+      <div class="box">
+        <p class="title is-size-4 is-size-6-mobile has-text-primary">Tuesday:</p>
+        <%= render "shared/dotw", :day => 'Tuesday' %>
+      </div>
     </div>
 
-    <div class="tile is-child box">
-      <p class="title is-size-6-mobile">Wednesday:</p>
-      <%= render "shared/dotw", :day => 'Wednesday' %>
+    <div class="column">
+      <div class="box">
+        <p class="title is-size-4 is-size-6-mobile has-text-link">Wednesday:</p>
+        <%= render "shared/dotw", :day => 'Wednesday' %>
+      </div>
     </div>
 
-    <div class="tile is-child box">
-      <p class="title is-size-6-mobile">Thursday:</p>
-      <%= render "shared/dotw", :day => 'Thursday' %>
-    </div>
-  </div>
-
-  <div class="tile is-5 is-vertical is-parent">
-    <div class="tile is-child box">
-      <p class="title is-size-6-mobile">Friday:</p>
-      <%= render "shared/dotw", :day => 'Friday' %>
+    <div class="column">
+      <div class="box">
+        <p class="title is-size-4 is-size-6-mobile has-text-info">Thursday:</p>
+        <%= render "shared/dotw", :day => 'Thursday' %>
+      </div>
     </div>
 
-    <div class="tile is-child box">
-      <p class="title is-size-6-mobile">Saturday:</p>
-      <%= render "shared/dotw", :day => 'Saturday' %>
+    <div class="column">
+      <div class="box">
+        <p class="title is-size-4 is-size-6-mobile has-text-success-dark">Friday:</p>
+        <%= render "shared/dotw", :day => 'Friday' %>
+      </div>
     </div>
 
-    <div class="tile is-child box">
-      <p class="title is-size-6-mobile">Irregular:</p>
-      <%= render "shared/dotw", :day => 'Irregular' %>
+    <div class="column">
+      <div class="box">
+        <p class="title is-size-4 is-size-6-mobile has-text-warning-dark">Saturday:</p>
+        <%= render "shared/dotw", :day => 'Saturday' %>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="box">
+        <p class="title is-size-4 is-size-6-mobile has-text-danger">Irregular:</p>
+        <%= render "shared/dotw", :day => 'Irregular' %>
+      </div>
     </div>
   </div>
 </div>

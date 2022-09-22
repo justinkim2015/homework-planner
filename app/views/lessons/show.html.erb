@@ -32,10 +32,10 @@
       <%= form_with model: Assignment.new do |f| %>
         <div class="is-flex is-flex-direction-column my-5">
           <%= f.label :name, "Homework:", class: "label is-size-7-mobile" %>
-          <%= f.select(:name, Assignment.names, {}, class: "select") %>
+          <%= f.select(:name, Assignment.names, {}, required: true, class: "select") %>
 
           <%= f.label :length, "Length(weeks):", class: "label is-size-7-mobile mt-3"%>
-          <%= f.number_field :length, class: "input" %>
+          <%= f.number_field :length, required: true, class: "input" %>
 
           <%= f.hidden_field :lesson_id, value: @lesson.id %>
         </div>
