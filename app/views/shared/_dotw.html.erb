@@ -1,21 +1,28 @@
-<ul>
-  <% @lessons.each do |lesson| %>
-    <% if lesson.date == day %>
-      <li>
-        <div class="is-flex">
-          
-          <% if current_user.id == lesson.user_id %>
-            <%= link_to lesson.info, lesson_path(lesson.id), class: "has-text-black is-size-7-mobile" %> 
-          <% end %>
-          
-          <% lesson.assignments.each do |assignment| %>
-            <% if assignment.time_remaining <= 7 && current_user.id == lesson.user_id %>
-              <div class="has-text-danger-dark ml-2 is-size-7-mobile">Order new homework!</div>
-            <% end %>
-          <% end %>
+<div class="column">
+  <div class="box">
+    <p class="title is-size-4 is-size-6-mobile has-text-<%= color %>"><%= day %>:</p>
+    <ul>
+      <% @lessons.each do |lesson| %>
 
-        </div>
+        <% if lesson.date == day %>
+          <li>
+            <div class="is-flex">
+              
+              <% if current_user.id == lesson.user_id %>
+                <%= link_to lesson.info, lesson_path(lesson.id), class: "has-text-black is-size-7-mobile" %> 
+              <% end %>
+              
+              <% lesson.assignments.each do |assignment| %>
+                <% if assignment.time_remaining <= 7 && current_user.id == lesson.user_id %>
+                  <div class="has-text-danger-dark ml-2 is-size-7-mobile">Order new homework!</div>
+                <% end %>
+              <% end %>
+              
+            </div>
+          </li>
+        <% end %>
+      <% end %>
       </li>
-    <% end %>
-  <% end %>
-</ul>      
+    </ul>          
+  </div>
+</div>

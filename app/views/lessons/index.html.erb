@@ -1,47 +1,11 @@
 <%= render "shared/navbar" %>
 <%= render "shared/flash" %>
 
-  <div class="columns is-flex is-flex-direction-column m-6">
-    <div class="column">
-      <div class="box">
-        <p class="title is-size-4 is-size-6-mobile has-text-primary">Tuesday:</p>
-        <%= render "shared/dotw", :day => 'Tuesday' %>
-      </div>
-    </div>
-
-    <div class="column">
-      <div class="box">
-        <p class="title is-size-4 is-size-6-mobile has-text-link">Wednesday:</p>
-        <%= render "shared/dotw", :day => 'Wednesday' %>
-      </div>
-    </div>
-
-    <div class="column">
-      <div class="box">
-        <p class="title is-size-4 is-size-6-mobile has-text-info">Thursday:</p>
-        <%= render "shared/dotw", :day => 'Thursday' %>
-      </div>
-    </div>
-
-    <div class="column">
-      <div class="box">
-        <p class="title is-size-4 is-size-6-mobile has-text-success-dark">Friday:</p>
-        <%= render "shared/dotw", :day => 'Friday' %>
-      </div>
-    </div>
-
-    <div class="column">
-      <div class="box">
-        <p class="title is-size-4 is-size-6-mobile has-text-warning-dark">Saturday:</p>
-        <%= render "shared/dotw", :day => 'Saturday' %>
-      </div>
-    </div>
-
-    <div class="column">
-      <div class="box">
-        <p class="title is-size-4 is-size-6-mobile has-text-danger">Irregular:</p>
-        <%= render "shared/dotw", :day => 'Irregular' %>
-      </div>
-    </div>
-  </div>
+<div class="columns is-flex is-flex-direction-column m-6">
+  <%= render partial: "shared/dotw", :locals => { :day => 'Tuesday', :color => 'primary' } %>
+  <%= render partial: "shared/dotw", :locals => { :day => 'Wednesday', :color => 'link' } %>
+  <%= render partial: "shared/dotw", :locals => { :day => 'Thursday', :color => 'info' } %>
+  <%= render partial: "shared/dotw", :locals => { :day => 'Friday', :color => 'success-dark' } %>
+  <%= render partial: "shared/dotw", :locals => { :day => 'Saturday', :color => 'warning-dark' } %>
+  <%= render partial: "shared/dotw", :locals => { :day => 'Irregular', :color => 'danger' } %>
 </div>

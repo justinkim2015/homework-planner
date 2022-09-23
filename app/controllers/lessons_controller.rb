@@ -2,7 +2,7 @@ class LessonsController < ApplicationController
   before_action :lesson_owner, only: [:show, :edit, :destroy]
 
   def index
-    @lessons = Lesson.all
+    @lessons = Lesson.all.order(time: :asc)
   end
 
   def show
