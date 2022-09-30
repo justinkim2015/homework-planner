@@ -6,19 +6,11 @@ ruby "3.1.2"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"
 
-# Use sidekiq to schedule jobs
-gem 'sidekiq'
-
 # Add gem to test emails
 gem "letter_opener", group: :development
 
 # Use devise for user authentication
 gem "devise"
-
-# Add guard for automatic testing
-group :development do
-  gem 'guard'
-end
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -88,5 +80,3 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-
-gem 'cssbundling-rails'
